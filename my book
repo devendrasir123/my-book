@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महाभारतका कथाहरू</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Google Fonts for Nepali (Optional, but good for consistency) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #FDF5E6; /* A light, parchment-like color */
+            color: #3A3B3C; /* Dark grey for general text */
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            transition: background-color 0.5s ease; /* Smooth background transition */
+        }
+
+        .app-title {
+            color: #8B4513; /* SaddleBrown */
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+
+        .book-container {
+            background-color: #FFF8DC; /* Cornsilk - for the "pages" */
+            border: 3px solid #D2B48C; /* Tan - for book border */
+            border-radius: 10px;
+            padding: 30px 40px;
+            min-height: 500px; /* Adjust as needed for content */
+            position: relative; /* Needed for absolute positioning of pages if we did a flip */
+            overflow: hidden; /* Ensures pages don't spill out during transition */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .story-page {
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out; /* Fade effect */
+            color: #5C4033; /* Darker brown for story text */
+        }
+
+        .story-page.active-page {
+            display: block; /* Show active page */
+            opacity: 1;
+        }
+
+        .story-title {
+            color: #A0522D; /* Sienna - for story titles */
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .story-page p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .page-nav-btn {
+            background-color: #8B4513; /* SaddleBrown */
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+        }
+        .page-nav-btn:hover {
+            background-color: #A0522D; /* Sienna */
+            color: #FFFFFF;
+        }
+        .page-nav-btn:disabled {
+            background-color: #C0C0C0; /* Silver */
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .page-indicator-text {
+            font-size: 1.1rem;
+            color: #5C4033;
+            font-weight: bold;
+        }
+
+        /* Different background colors for body based on current story */
+        body.story-bg-1 { background-color: #F0E68C; } /* Khaki */
+        body.story-bg-2 { background-color: #E6E6FA; } /* Lavender */
+        body.story-bg-3 { background-color: #FFDAB9; } /* PeachPuff */
+        body.story-bg-4 { background-color: #ADD8E6; } /* LightBlue */
+        body.story-bg-5 { background-color: #90EE90; } /* LightGreen */
+
+        /* Ensure the book container remains readable on darker body backgrounds */
+        .story-bg-1 .book-container,
+        .story-bg-2 .book-container,
+        .story-bg-3 .book-container,
+        .story-bg-4 .book-container,
+        .story-bg-5 .book-container {
+            background-color: rgba(255, 248, 220, 0.95); /* Cornsilk with slight transparency */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4 mb-5">
+        <h1 class="text-center mb-4 app-title">महाभारतका कथाहरू</h1>
+
+        <div class="book-container shadow-lg">
+            <!-- Story Pages -->
+            <div class="story-page active-page" id="story-1">
+                <h2 class="story-title">१. भीष्म प्रतिज्ञा</h2>
+                <p>
+                    हस्तिनापुरका महाराज शान्तनुले सत्यवतीसँग विवाह गर्ने इच्छा राखे। तर सत्यवतीका पिताले शर्त राखे कि सत्यवतीबाट जन्मेको पुत्र नै हस्तिनापुरको राजा बन्नुपर्छ। राजकुमार देवव्रत (भीष्म) लाई यो कुरा थाहा भएपछि, उनले आफ्नो पिताको खुशीका लागि आजीवन ब्रह्मचर्यको पालना गर्ने र कहिल्यै राजगद्दीमा नबस्ने प्रतिज्ञा गरे।
+                    यस्तो कठोर प्रतिज्ञाका कारण उनलाई 'भीष्म' भनियो र इच्छामृत्युको वरदान पनि प्राप्त भयो। उनले आफ्नो प्रतिज्ञाका कारण कहिल्यै विवाह गरेनन् र हस्तिनापुरको संरक्षकको रूपमा रहे। भीष्मको यो त्याग र प्रतिज्ञा महाभारतको एक महत्वपूर्ण घटना हो, जसले कथाको मार्गलाई नै परिवर्तन गरिदियो। उनको निष्ठा र समर्पण अतुलनीय थियो, तर यही प्रतिज्ञाले उनलाई कुरुक्षेत्रको युद्धमा अधर्मको पक्षमा उभिन बाध्य बनायो। यो प्रतिज्ञाले हस्तिनापुरको भविष्यमा ठूलो प्रभाव पार्यो र कौरव-पाण्डवबीचको द्वन्द्वको बीउ रोप्यो।
+                </p>
+            </div>
+
+            <div class="story-page" id="story-2">
+                <h2 class="story-title">२. द्रौपदी स्वयंवर</h2>
+                <p>
+                    पाञ्चालका राजा द्रुपदले आफ्नी छोरी द्रौपदीको स्वयंवर आयोजना गरे। शर्त थियो कि पानीमा हेरेर माथि घुमिरहेको माछाको आँखामा बाण हान्नुपर्नेछ। धेरै राजा-महाराजाहरू असफल भए, कर्ण पनि नजिक पुगेर चुके।
+                    त्यसपछि ब्राह्मण भेषमा आएका अर्जुनले सजिलै लक्ष्य भेदन गरे। द्रौपदीले अर्जुनलाई वरमाला पहिराइन्। पाण्डवहरू द्रौपदीलाई लिएर कुटीमा फर्के। माता कुन्तीलाई थाहै नपाई "जे ल्याएका छौ, आपसमा बाँड" भनिन्। माताको वचन राख्न पाँचै पाण्डवले द्रौपदीसँग विवाह गरे।
+                    यो घटनाले पाण्डवहरूको एकता र माताप्रतिको आज्ञाकारिता देखायो, तर द्रौपदीको जीवनमा अनेकौं चुनौतीहरू थप्यो। यो स्वयंवरले कौरवहरूको ईर्ष्यालाई अझ बढायो, किनकि उनीहरू पाण्डवहरू जीवित छन् भन्ने थाहा पाएर क्रोधित थिए। द्रौपदीको यो विवाह महाभारतको कथामा एक अद्वितीय र विवादास्पद घटना मानिन्छ।
+                </p>
+            </div>
+
+            <div class="story-page" id="story-3">
+                <h2 class="story-title">३. द्युत क्रीडा र द्रौपदीको चीरहरण</h2>
+                <p>
+                    पाण्डवहरूको बढ्दो शक्ति र इन्द्रप्रस्थको वैभव देखेर दुर्योधन ईर्ष्याले जले। मामा शकुनिको सल्लाहमा उसले युधिष्ठिरलाई द्युत क्रीडा (जुवा) खेल्न आमन्त्रित गर्यो। युधिष्ठिर धर्मको पालन गर्दै खेल्न बाध्य भए।
+                    शकुनिको छलपूर्ण पासाका कारण युधिष्ठिरले आफ्नो राज्य, धन, भाइहरू र अन्ततः आफूलाई पनि हारे। अन्त्यमा, उनले द्रौपदीलाई पनि दाउमा लगाए र हारे। दुःशासनले द्रौपदीलाई कपाल समातेर सभामा ल्यायो र उनको वस्त्रहरण गर्ने प्रयास गर्यो। द्रौपदीले भगवान श्रीकृष्णलाई पुकारिन्। श्रीकृष्णको कृपाले उनको साडी कहिल्यै नसकिने गरी बढ्दै गयो र उनको लाज बच्यो।
+                    यो घटना महाभारतको सबैभन्दा लज्जास्पद र क्रूर घटनाहरूमध्ये एक हो, जसले कुरुक्षेत्र युद्धको आधार तयार पार्यो। भीष्म, द्रोण, विदुरजस्ता ज्ञानीहरू पनि मौन बसे, जसले अधर्मलाई मौन स्वीकृति दिएको देखियो।
+                </p>
+            </div>
+
+            <div class="story-page" id="story-4">
+                <h2 class="story-title">४. अभिमन्यु र चक्रव्यूह</h2>
+                <p>
+                    महाभारत युद्धको तेह्रौं दिन, द्रोणाचार्यले पाण्डव सेनालाई हराउन चक्रव्यूहको रचना गरे। अर्जुनलाई युद्धभूमिबाट टाढा लगेर यो व्यूह रचिएको थियो। चक्रव्यूह भेदन गर्ने कला अर्जुन बाहेक अभिमन्युलाई मात्र थाहा थियो, तर उनलाई बाहिर निस्कने तरिका थाहा थिएन।
+                    युधिष्ठिरको आज्ञा पाएर अभिमन्युले वीरतापूर्वक चक्रव्यूह भेदन गरे। पाण्डवहरूले उनको पछि लाग्ने प्रयास गरे तर जयद्रथले उनीहरूलाई रोकिदिए। चक्रव्यूहभित्र एक्लै परेका अभिमन्युले ठूला-ठूला कौरव महारथीहरू (कर्ण, द्रोण, दुर्योधन, शकुनि आदि) सँग बहादुरीपूर्वक लडे।
+                    अन्ततः, निशस्त्र र थकित अभिमन्युलाई सबै कौरव महारथीहरूले मिलेर अधर्मपूर्वक मारे। अभिमन्युको यो बलिदानले पाण्डवहरूलाई शोक र क्रोधले भरिदियो, र अर्जुनले जयद्रथलाई मार्ने प्रतिज्ञा गरे। यो घटना युद्धको क्रूरता र अधर्मको पराकाष्ठा थियो।
+                </p>
+            </div>
+
+            <div class="story-page" id="story-5">
+                <h2 class="story-title">५. गीता उपदेश</h2>
+                <p>
+                    कुरुक्षेत्रको युद्धभूमिमा, आफ्ना गुरुजन, आफन्त र भाइहरूलाई शत्रुको रूपमा देखेर अर्जुन मोहग्रस्त भए र युद्ध गर्न अस्वीकार गरे। उनले शस्त्र त्यागिदिए र भगवान श्रीकृष्णसँग आफ्नो दुविधा व्यक्त गरे।
+                    तब श्रीकृष्णले अर्जुनलाई आत्माको अमरता, कर्मयोग, ज्ञानयोग, भक्तियोग र धर्मको महत्वबारे उपदेश दिए, जुन श्रीमद्भगवद्गीताको रूपमा प्रसिद्ध छ। श्रीकृष्णले सम्झाए कि क्षत्रियको धर्म युद्ध गर्नु हो र अधर्मको नाशका लागि यो आवश्यक छ। "कर्म गर, फलको आशा नगर" भन्ने उनको मुख्य सन्देश थियो।
+                    यो उपदेश सुनेपछि अर्जुनको मोह भंग भयो र उनी युद्ध गर्न तयार भए। गीताको उपदेशले केवल अर्जुनलाई मात्र नभई सम्पूर्ण मानवजातिलाई कर्तव्य, धर्म र जीवनको दर्शन प्रदान गर्दछ। यो महाभारतको दार्शनिक र आध्यात्मिक केन्द्रबिन्दु हो।
+                </p>
+            </div>
+        </div>
+
+        <div class="navigation-buttons mt-4 d-flex justify-content-between">
+            <button id="prevBtn" class="btn btn-lg page-nav-btn">अघिल्लो पाना</button>
+            <div id="pageIndicator" class="align-self-center page-indicator-text"></div>
+            <button id="nextBtn" class="btn btn-lg page-nav-btn">अर्को पाना</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const storyPages = document.querySelectorAll('.story-page');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageIndicator = document.getElementById('pageIndicator');
+            const body = document.body;
+            let currentPageIndex = 0;
+            const totalPages = storyPages.length;
+
+            // Array of background classes for the body
+            // The last element in backgroundClasses will be used if no specific class is defined for a page, or as a default.
+            // We'll use the default body background-color defined in CSS as the actual default.
+            const backgroundClasses = ['story-bg-1', 'story-bg-2', 'story-bg-3', 'story-bg-4', 'story-bg-5']; 
+            const defaultBodyBg = '#FDF5E6'; // Match CSS body background-color
+
+            function updatePageIndicator() {
+                pageIndicator.textContent = `पाना ${currentPageIndex + 1} / ${totalPages}`;
+            }
+
+            function updateBodyBackground() {
+                // Remove any existing story-specific background classes
+                backgroundClasses.forEach(bgClass => body.classList.remove(bgClass));
+                
+                // Add the new one if available for the current page
+                if (currentPageIndex < backgroundClasses.length) {
+                     body.classList.add(backgroundClasses[currentPageIndex]);
+                } else {
+                    // If no specific class for this page, ensure no story-specific class is on body
+                    // and rely on the default CSS for body background.
+                    // If you want to force a specific default color via JS:
+                    // body.style.backgroundColor = defaultBodyBg; 
+                }
+            }
+
+            function showPage(index) {
+                // Hide all pages
+                storyPages.forEach(page => {
+                    page.classList.remove('active-page');
+                });
+
+                // Show the target page
+                storyPages[index].classList.add('active-page');
+
+                // Update button states
+                prevBtn.disabled = (index === 0);
+                nextBtn.disabled = (index === totalPages - 1);
+
+                updatePageIndicator();
+                updateBodyBackground();
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPageIndex > 0) {
+                    currentPageIndex--;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPageIndex < totalPages - 1) {
+                    currentPageIndex++;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // Initial setup
+            showPage(currentPageIndex);
+        });
+    </script>
+</body>
+</html>
